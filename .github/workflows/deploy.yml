@@ -59,6 +59,8 @@ jobs:
     name: Deploy to ECS (Terraform)
     runs-on: ubuntu-latest
     needs: build_push
+    outputs:
+      url: ${{ steps.alb.outputs.url }}
     steps:
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
